@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QR-карточка | Отель Звездный</title>
+    <link rel="icon" href="https://zvezdny.biz/favicon.ico">
+    <style>
+      :root {
+        --green: #08393d;
+        --gold: #b9945b;
+        --paper: #fffaf3;
+        --line: #d8e2df;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #f2eee7;
+        color: var(--green);
+        font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .card {
+        width: min(92vw, 360px);
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+        text-align: center;
+        box-shadow: 0 18px 48px rgba(8, 57, 61, 0.14);
+      }
+
+      .logo {
+        width: 140px;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 10px 0 0;
+        color: #536365;
+        font-size: 15px;
+      }
+
+      .qr {
+        display: grid;
+        width: 190px;
+        height: 190px;
+        place-items: center;
+        margin: 24px auto;
+        border: 10px solid #fff;
+        background: #fff;
+        box-shadow: inset 0 0 0 1px var(--line);
+      }
+
+      .qr img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .qr-fallback {
+        display: block;
+        padding: 8px;
+        background: #fff;
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .url {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--gold);
+        font-weight: 800;
+        word-break: break-all;
+      }
+
+      .note {
+        margin-top: 12px;
+        padding: 10px;
+        border-radius: 8px;
+        background: #fff;
+        color: #697679;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <img class="logo" src="https://zvezdny.biz/upload/images/ZV_logo.svg" alt="Отель Звездный">
+      <h1>Цифровой гид гостя</h1>
+      <p>Сканируйте QR-код, введите номер комнаты и откройте Wi-Fi, завтрак, услуги, SPA и контакты ресепшена.</p>
+      <div class="qr" aria-label="Место для QR-кода">
+        <img id="qrImage" alt="QR-код для открытия цифрового гида">
+        <span class="qr-fallback" id="qrFallback">QR code</span>
+      </div>
+      <p class="url" id="qrUrl">zvezdny-guestbook/index.html</p>
+      <p class="note" id="qrNote"></p>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const guestbookUrl = params.get("url") || new URL("index.html", window.location.href).href;
+      const qrImage = document.querySelector("#qrImage");
+      const qrFallback = document.querySelector("#qrFallback");
+      const qrUrl = document.querySelector("#qrUrl");
+      const qrNote = document.querySelector("#qrNote");
+
+      qrUrl.textContent = guestbookUrl;
+      qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=420x420&margin=16&data=" + encodeURIComponent(guestbookUrl);
+      qrImage.addEventListener("load", () => {
+        qrFallback.hidden = true;
+      });
+
+      if (window.location.protocol === "file:" && !params.get("url")) {
+        qrNote.textContent = "Сейчас QR ведет на локальный file:// адрес. Для печати сначала опубликуйте guestbook и откройте qr-card.html?url=ВАШ_ПУБЛИЧНЫЙ_URL.";
+      } else {
+        qrNote.textContent = "Этот QR ведет на общий guestbook. Номер комнаты гость вводит после сканирования.";
+      }
+    </script>
+  </body>
+</html>

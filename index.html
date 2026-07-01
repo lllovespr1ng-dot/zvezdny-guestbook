@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08393d">
+    <title>Guestbook | Hotel Zvezdny</title>
+    <meta
+      name="description"
+      content="Тестовый цифровой гостевой справочник для отеля Звездный в Сочи."
+    >
+    <link rel="icon" href="https://zvezdny.biz/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section class="room-gate" id="roomGate" aria-label="Ввод номера комнаты">
+      <form class="room-gate-card" id="roomGateForm">
+        <img
+          src="https://zvezdny.biz/upload/images/ZV_logo.svg"
+          alt="Отель Звездный"
+          class="room-gate-logo"
+        >
+        <p class="section-kicker" data-i18n="roomGateKicker">Перед началом</p>
+        <h1 data-i18n="roomGateTitle">Введите номер комнаты</h1>
+        <p data-i18n="roomGateText">
+          Номер нужен, чтобы заявки на услуги и обратная связь сразу попадали сотрудникам с правильной привязкой.
+        </p>
+        <label>
+          <span data-i18n="formRoom">Номер комнаты</span>
+          <input id="roomGateInput" type="text" inputmode="numeric" autocomplete="off" placeholder="Например, 512">
+        </label>
+        <button class="primary-button full-width" type="submit" data-i18n="continueButton">Продолжить</button>
+      </form>
+    </section>
+
+    <div class="app-shell">
+      <header class="topbar" aria-label="Основная информация">
+        <a class="brand" href="#home" aria-label="На главную">
+          <img
+            src="https://zvezdny.biz/upload/images/ZV_logo.svg"
+            alt="Отель Звездный"
+            class="brand-logo"
+          >
+        </a>
+        <div class="topbar-actions">
+          <button class="lang-switch active" type="button" data-lang="ru">RU</button>
+          <button class="lang-switch" type="button" data-lang="en">EN</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="demo-badge">Hotel Guest Guide</div>
+          <p class="eyebrow" data-i18n="eyebrow">Ваш цифровой гид по отелю</p>
+          <h1 data-i18n="welcome">Добро пожаловать в отель «Звездный»</h1>
+          <p class="hero-text" data-i18n="heroText">Здесь собрана важная информация для проживания: Wi-Fi, заезд и выезд, уборка, услуги, SPA, связь с ресепшеном и обратная связь.</p>
+          <div class="room-chip">
+            <span data-i18n="roomLabel">Номер</span>
+            <strong id="roomNumber">304</strong>
+            <button class="room-edit" type="button" id="editRoom" data-i18n="editRoom">Изменить</button>
+          </div>
+        </section>
+
+        <section class="quick-actions" aria-label="Быстрые действия">
+          <a class="action-card" href="#wifi">
+            <span class="action-icon">Wi</span>
+            <span data-i18n="wifi">Wi-Fi</span>
+          </a>
+          <a class="action-card" href="#stay">
+            <span class="action-icon">24</span>
+            <span data-i18n="stayRulesNav">Проживание</span>
+          </a>
+          <a class="action-card" href="#food">
+            <span class="action-icon">07</span>
+            <span data-i18n="breakfast">Завтрак</span>
+          </a>
+          <a class="action-card" href="#spa">
+            <span class="action-icon">SP</span>
+            <span>SPA</span>
+          </a>
+        </section>
+
+        <section class="notice">
+          <div>
+            <strong data-i18n="needHelp">Нужна помощь?</strong>
+            <p data-i18n="needHelpText">Свяжитесь с отелем удобным способом. Для срочных вопросов используйте телефон или мессенджеры отеля.</p>
+          </div>
+          <div class="notice-actions">
+            <a class="pill-button" href="https://t.me/hotel_zvezdny" target="_blank" rel="noreferrer">Telegram</a>
+            <a class="pill-button" href="https://chatapp.online/wa-redirect/?phone=79649454143" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </section>
+
+        <section class="section" id="wifi">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="stayInfo">Проживание</p>
+            <h2 data-i18n="wifiTitle">Wi-Fi и основная информация</h2>
+          </div>
+          <div class="info-grid">
+            <article class="info-panel primary-panel">
+              <span class="panel-label">Wi-Fi</span>
+              <h3 data-i18n="wifiNetwork">Сеть: HOTEL ZVEZDNY</h3>
+              <p data-i18n="wifiAuthText">Пароль не требуется. После подключения откроется авторизация по номеру телефона. Для устройств без SIM-карты можно получить ваучер на ресепшене.</p>
+            </article>
+            <article class="info-panel">
+              <span class="panel-label" data-i18n="checkin">Заезд</span>
+              <h3>15:00</h3>
+              <p data-i18n="checkinText">Ранний заезд обсуждается в день заезда и зависит от готовности номера.</p>
+            </article>
+            <article class="info-panel">
+              <span class="panel-label" data-i18n="checkout">Выезд</span>
+              <h3>до 12:00</h3>
+              <p data-i18n="checkoutText">Поздний выезд обсуждается в день выезда и зависит от загрузки отеля.</p>
+            </article>
+            <article class="info-panel">
+              <span class="panel-label" data-i18n="address">Адрес</span>
+              <h3>Сочи, Гагарина, 5</h3>
+              <p>354065, Россия, Краснодарский край.</p>
+            </article>
+            <article class="info-panel">
+              <span class="panel-label" data-i18n="parking">Парковка</span>
+              <h3 data-i18n="freeForGuests">Бесплатно для гостей</h3>
+              <p data-i18n="parkingText">Парковка на территории отеля бесплатна для проживающих гостей.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="stay">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="stayRulesKicker">Правила проживания</p>
+            <h2 data-i18n="stayRulesTitle">Заезд, выезд и важные условия</h2>
+          </div>
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3 data-i18n="earlyLateTitle">Ранний заезд и поздний выезд</h3>
+              <p data-i18n="earlyLateText">Если номер готов, отель может комплементарно заселить с 12:00. При наличии возможности поздний выезд до 13:00 или 14:00 также может быть предоставлен комплементарно.</p>
+              <p data-i18n="earlyLatePaidText">Платный ранний заезд или поздний выезд стоит 50% от базовой стоимости суток в категории забронированного номера. Поздний выезд по платному тарифу возможен до 23:00.</p>
+            </article>
+            <article class="policy-card">
+              <h3 data-i18n="smokingTitle">Курение</h3>
+              <p data-i18n="smokingText">Курение запрещено на всей территории отеля. За курение, порчу имущества и другие нарушения могут применяться штрафы. Депозит при заселении не взимается.</p>
+            </article>
+            <article class="policy-card">
+              <h3 data-i18n="petsTitle">Проживание с животными</h3>
+              <p data-i18n="petsText">Разрешено в категории “Апартаменты без балкона”. Стоимость размещения с животным — 2 500 ₽ в сутки.</p>
+            </article>
+            <article class="policy-card">
+              <h3 data-i18n="visitorsTitle">Гости в номере</h3>
+              <p data-i18n="visitorsText">Гостей можно приглашать в номер с 07:00 до 23:00.</p>
+            </article>
+            <article class="policy-card">
+              <h3 data-i18n="housekeepingTitle">Уборка и полотенца</h3>
+              <p data-i18n="housekeepingText">Уборка проводится раз в 3 дня после 15:00. Замена полотенец доступна ежедневно. Дополнительную уборку можно запросить на ресепшене или через этот сервис.</p>
+              <button class="text-button" type="button" data-request="housekeeping" data-i18n="requestCleaning">Запросить уборку</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="food">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="foodKicker">Еда и напитки</p>
+            <h2 data-i18n="foodTitle">Рестораны и room service</h2>
+          </div>
+          <div class="timeline-list">
+            <article class="timeline-item">
+              <span class="time">07:00-11:00</span>
+              <div>
+                <h3 data-i18n="breakfastBuffet">Завтрак, шведский стол</h3>
+                <p data-i18n="breakfastPlace">1 этаж основного корпуса. Ресторан работает с 07:00 до 20:00.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="time">24/7</span>
+              <div>
+                <h3 data-i18n="lobbyBar">Лобби-бар</h3>
+                <p data-i18n="lobbyPlace">1 этаж основного корпуса.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="time">24/7</span>
+              <div>
+                <h3>Room Service</h3>
+                <p data-i18n="roomServiceText">Обслуживание номеров доступно круглосуточно. С телефона в номере можно использовать внутренние номера 130 или 151.</p>
+              </div>
+            </article>
+          </div>
+          <div class="button-row">
+            <button class="primary-button" type="button" data-request="room-service" data-i18n="requestRoomService">Запросить room service</button>
+            <span class="secondary-button info-button" data-i18n="internalPhone130">Внутренний телефон 130</span>
+          </div>
+        </section>
+
+        <section class="section" id="services">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="servicesKicker">Услуги</p>
+            <h2 data-i18n="servicesTitle">Все для комфортного отдыха</h2>
+          </div>
+          <div class="service-list">
+            <article class="service-item" id="spa">
+              <div>
+                <h3>Wellness & SPA «Звездный»</h3>
+                <p data-i18n="spaText">Ежедневно с 09:00 до 23:00. Телефон SPA-отдела: +7 928 459-04-38.</p>
+              </div>
+              <button class="text-button" type="button" data-request="spa" data-i18n="request">Заказать</button>
+            </article>
+            <article class="service-item">
+              <div>
+                <h3 data-i18n="beach">Пляж</h3>
+                <p data-i18n="beachText">Информация по режиму работы и условиям доступа будет добавлена позже.</p>
+              </div>
+              <a class="text-button" href="https://zvezdny.biz/services/plyazhnyy-kompleks/" target="_blank" rel="noreferrer" data-i18n="details">Подробнее</a>
+            </article>
+            <article class="service-item">
+              <div>
+                <h3 data-i18n="pool">Бассейны</h3>
+                <p data-i18n="poolText">Информация по режиму работы и условиям доступа будет добавлена позже.</p>
+              </div>
+              <a class="text-button" href="https://zvezdny.biz/services/otel-s-bassejnom-v-sochi/" target="_blank" rel="noreferrer" data-i18n="details">Подробнее</a>
+            </article>
+            <article class="service-item">
+              <div>
+                <h3 data-i18n="fitness">Фитнес-клуб</h3>
+                <p data-i18n="fitnessText">Информация по режиму работы и условиям доступа будет добавлена позже.</p>
+              </div>
+              <a class="text-button" href="https://zvezdny.biz/services/orange-fitness/" target="_blank" rel="noreferrer" data-i18n="details">Подробнее</a>
+            </article>
+            <article class="service-item">
+              <div>
+                <h3 data-i18n="laundry">Прачечная</h3>
+                <p data-i18n="laundryText">Платная услуга. Заявку можно отправить через ресепшен или через этот сервис.</p>
+              </div>
+              <button class="text-button" type="button" data-request="laundry" data-i18n="request">Заказать</button>
+            </article>
+            <article class="service-item">
+              <div>
+                <h3 data-i18n="petFriendly">Проживание с питомцами</h3>
+                <p data-i18n="petText">Разрешено в категории “Апартаменты без балкона”. Стоимость — 2 500 ₽ в сутки.</p>
+              </div>
+              <button class="text-button" type="button" data-request="pet-friendly" data-i18n="request">Заказать</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="feedback">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="feedbackKicker">Обратная связь</p>
+            <h2 data-i18n="feedbackTitle">Расскажите, как проходит проживание</h2>
+          </div>
+          <div class="feedback-panel">
+            <p data-i18n="feedbackText">
+              Если возникла проблема, лучше сообщить команде отеля до выезда. Если все понравилось, можно оставить публичный отзыв.
+            </p>
+            <div class="button-row">
+              <button class="primary-button" type="button" id="openFeedback" data-i18n="sendFeedback">Оставить обратную связь</button>
+              <a class="secondary-button link-button" href="https://yandex.ru/maps/org/zvyozdny_wellness_spa/154422091618/reviews/?ll=39.720260%2C43.594931&tab=reviews&z=15.29" target="_blank" rel="noreferrer" data-i18n="leaveYandexReview">Отзыв на Яндекс</a>
+              <a class="secondary-button link-button" href="https://2gis.ru/sochi/firm/4222652931637576/tab/reviews?m=39.720058%2C43.594882%2F16&relief=on" target="_blank" rel="noreferrer" data-i18n="leave2gisReview">Отзыв в 2ГИС</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contacts">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="contactsKicker">Контакты</p>
+            <h2 data-i18n="contactsTitle">Связь с отелем</h2>
+          </div>
+          <div class="contact-list">
+            <a href="tel:88007700414">8 800 770 04 14</a>
+            <a href="mailto:booking@zvezdny.net">booking@zvezdny.net</a>
+            <a href="https://t.me/hotel_zvezdny" target="_blank" rel="noreferrer">@hotel_zvezdny</a>
+            <a href="https://zvezdny.biz/contacts/" target="_blank" rel="noreferrer" data-i18n="openMap">Открыть карту и схему проезда</a>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Навигация">
+        <a href="#home" data-i18n="navHome">Главная</a>
+        <a href="#food" data-i18n="navFood">Еда</a>
+        <a href="#services" data-i18n="navServices">Услуги</a>
+        <a href="#feedback" data-i18n="navFeedback">Отзыв</a>
+      </nav>
+    </div>
+
+    <dialog class="modal" id="requestModal">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <p class="section-kicker" data-i18n="serviceRequestKicker">Заявка на услугу</p>
+        <h2 id="requestTitle" data-i18n="requestTitle">Заявка на услугу</h2>
+        <label>
+          <span data-i18n="formRoom">Номер комнаты</span>
+          <input type="text" value="304" id="requestRoom">
+        </label>
+        <label>
+          <span data-i18n="formComment">Комментарий</span>
+          <textarea id="requestComment" rows="4" placeholder="Например: удобное время, количество гостей, пожелания"></textarea>
+        </label>
+        <button class="primary-button full-width" type="submit" value="submit" data-i18n="sendRequest">Отправить заявку</button>
+        <p class="form-hint" data-i18n="formHint">На следующем этапе эта форма будет подключена к Telegram-чату сотрудников отеля.</p>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="feedbackModal">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <p class="section-kicker" data-i18n="privateFeedback">Приватная обратная связь</p>
+        <h2 data-i18n="feedbackModalTitle">Как проходит ваше проживание?</h2>
+        <label>
+          <span data-i18n="rating">Оценка</span>
+          <select>
+            <option>5 - отлично</option>
+            <option>4 - хорошо</option>
+            <option>3 - нормально</option>
+            <option>2 - есть проблема</option>
+            <option>1 - нужна срочная помощь</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="formRoom">Номер комнаты</span>
+          <input type="text" value="304" id="feedbackRoom">
+        </label>
+        <label>
+          <span data-i18n="formComment">Комментарий</span>
+          <textarea rows="4" placeholder="Опишите, что можно улучшить"></textarea>
+        </label>
+        <button class="primary-button full-width" type="submit" value="submit" data-i18n="sendFeedback">Оставить обратную связь</button>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
