@@ -1,16 +1,18 @@
 :root {
-  --green-950: #062f33;
-  --green-900: #08393d;
-  --green-800: #0f484d;
-  --green-700: #1a595e;
-  --green-100: #e7f0ef;
-  --gold: #b9945b;
-  --cream: #f7f4ef;
-  --paper: #fffaf3;
-  --text: #11272a;
-  --muted: #647477;
-  --line: #dde7e5;
-  --shadow: 0 14px 34px rgba(8, 57, 61, 0.13);
+  --green-950: #082c29;
+  --green-900: #12362f;
+  --green-800: #173f37;
+  --green-700: #28574e;
+  --green-100: #edf1e7;
+  --gold: #b49a62;
+  --gold-soft: #d9c89b;
+  --cream: #f4efe4;
+  --paper: #fffdf7;
+  --text: #142f2b;
+  --muted: #65736f;
+  --line: #d4d0bf;
+  --line-strong: #b8ad86;
+  --shadow: 0 18px 42px rgba(18, 54, 47, 0.16);
 }
 
 * {
@@ -23,10 +25,12 @@ html {
 
 body {
   margin: 0;
-  background: var(--cream);
+  background:
+    radial-gradient(circle at top left, rgba(180, 154, 98, 0.16), transparent 34%),
+    linear-gradient(180deg, #f8f3e8 0%, #efe8da 100%);
   color: var(--text);
-  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.45;
+  font-family: "Inter", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.38;
 }
 
 body.room-gate-open {
@@ -53,8 +57,8 @@ button {
   min-height: 100vh;
   max-width: 520px;
   margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 0 0 1px rgba(8, 57, 61, 0.05);
+  background: var(--paper);
+  box-shadow: 0 24px 70px rgba(18, 54, 47, 0.12);
   padding-bottom: 84px;
 }
 
@@ -65,64 +69,65 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 68px;
-  padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid var(--line);
+  min-height: 76px;
+  padding: 18px 18px 14px;
+  background: rgba(255, 253, 247, 0.92);
+  border-bottom: 1px solid rgba(184, 173, 134, 0.42);
   backdrop-filter: blur(14px);
 }
 
 .brand-logo {
   display: block;
-  width: 118px;
+  width: 126px;
   height: auto;
+  filter: brightness(0) saturate(100%) invert(17%) sepia(18%) saturate(1052%) hue-rotate(124deg) brightness(92%) contrast(91%);
 }
 
 .topbar-actions {
   display: flex;
-  gap: 6px;
-  padding: 4px;
-  background: var(--green-100);
-  border-radius: 999px;
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
 }
 
 .lang-switch {
   min-width: 42px;
   min-height: 34px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0;
   background: transparent;
-  color: var(--green-900);
+  color: var(--gold);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .lang-switch.active {
-  background: var(--green-900);
-  color: #fff;
+  background: transparent;
+  color: var(--green-900);
 }
 
 .hero {
   position: relative;
-  min-height: 330px;
-  padding: 28px 20px 22px;
-  color: #fff;
-  background:
-    linear-gradient(180deg, rgba(6, 47, 51, 0.24), rgba(6, 47, 51, 0.94)),
-    url("https://zvezdny.biz/upload/iblock/176/176e94283cbd9a9bbf287f5989c298b5.jpg") center / cover;
+  min-height: 0;
+  padding: 18px 20px 14px;
+  color: var(--green-900);
+  background: var(--paper);
 }
 
 .demo-badge {
-  width: max-content;
-  margin-bottom: 54px;
-  padding: 7px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 12px;
+  width: calc(100% + 40px);
+  margin: -18px -20px 18px;
+  padding: 6px 20px;
+  border-block: 1px solid rgba(184, 173, 134, 0.34);
+  border-radius: 0;
+  background: #dfe5db;
+  color: var(--green-900);
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: none;
 }
 
 .eyebrow,
@@ -131,95 +136,117 @@ button {
   color: var(--gold);
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .hero h1 {
   max-width: 390px;
   margin: 0;
-  font-size: 32px;
-  line-height: 1.08;
-  letter-spacing: 0;
+  color: var(--green-900);
+  font-size: clamp(36px, 12vw, 54px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.hero h1::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 58px;
+  margin: 0 12px 0 0;
+  background: var(--gold);
+  vertical-align: top;
 }
 
 .hero-text {
   max-width: 440px;
-  margin: 14px 0 0;
-  color: rgba(255, 255, 255, 0.86);
+  margin: 12px 0 0;
+  color: #111;
   font-size: 15px;
+  line-height: 1.28;
 }
 
 .room-chip {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-top: 20px;
-  padding: 9px 13px;
+  margin-top: 16px;
+  padding: 8px 12px;
+  border: 1px solid rgba(184, 173, 134, 0.54);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-  backdrop-filter: blur(12px);
+  background: #fbf8ee;
+  color: var(--green-900);
 }
 
 .room-edit {
   min-height: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(184, 173, 134, 0.58);
   border-radius: 999px;
   padding: 0 10px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: transparent;
+  color: var(--green-900);
   font-size: 12px;
   font-weight: 800;
 }
 
 .quick-actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  padding: 16px;
-  background: #fff;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0 20px 18px;
+  background: var(--paper);
 }
 
 .action-card {
   display: flex;
-  min-height: 82px;
+  min-height: 112px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 6px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--green-900);
-  font-size: 12px;
-  font-weight: 800;
+  padding: 14px 10px;
+  border: 2px solid rgba(180, 154, 98, 0.48);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 42%),
+    var(--green-900);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
   text-align: center;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 9px 18px rgba(18, 54, 47, 0.18);
 }
 
 .action-icon {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   place-items: center;
-  border-radius: 50%;
-  background: var(--green-900);
-  color: #fff;
-  font-size: 11px;
+  border-radius: 12px;
+  border: 1px solid rgba(180, 154, 98, 0.55);
+  background: rgba(180, 154, 98, 0.08);
+  color: var(--gold-soft);
+  font-size: 13px;
+  font-weight: 900;
   letter-spacing: 0.02em;
 }
 
 .notice,
 .section {
-  margin: 0 16px 16px;
+  margin: 0 20px 18px;
 }
 
 .notice {
   display: grid;
   gap: 14px;
-  padding: 16px;
-  border-radius: 8px;
-  background: var(--green-100);
+  padding: 17px;
+  border: 1px solid rgba(184, 173, 134, 0.52);
+  border-radius: 10px;
+  background: #fffdf8;
 }
 
 .notice p {
@@ -243,13 +270,19 @@ button {
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 800;
 }
 
 .pill-button {
   padding: 0 16px;
-  background: #fff;
+  border: 1px solid rgba(184, 173, 134, 0.5);
+  background: var(--green-900);
+  color: #fff;
+}
+
+.pill-button + .pill-button {
+  background: #fffdf8;
   color: var(--green-900);
 }
 
@@ -265,8 +298,9 @@ button {
 .section-heading h2 {
   margin: 0;
   color: var(--green-900);
-  font-size: 24px;
-  line-height: 1.16;
+  font-size: 27px;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
 }
 
 .info-grid {
@@ -281,17 +315,17 @@ button {
 .policy-card,
 .contact-list {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
+  border-radius: 10px;
+  background: #fffdf8;
 }
 
 .info-panel {
-  padding: 16px;
+  padding: 17px;
 }
 
 .primary-panel {
-  background: var(--paper);
-  border-color: rgba(185, 148, 91, 0.32);
+  background: #f9f3e4;
+  border-color: rgba(180, 154, 98, 0.55);
 }
 
 .panel-label {
@@ -308,7 +342,8 @@ button {
 .service-item h3 {
   margin: 0 0 6px;
   color: var(--green-900);
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.14;
 }
 
 .info-panel p,
@@ -318,6 +353,7 @@ button {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.42;
 }
 
 .password-line {
@@ -331,12 +367,13 @@ button {
   padding: 0 18px;
   background: var(--green-900);
   color: #fff;
+  box-shadow: 0 8px 16px rgba(18, 54, 47, 0.16);
 }
 
 .secondary-button {
-  border: 1px solid var(--green-700);
+  border: 1px solid rgba(180, 154, 98, 0.58);
   padding: 0 16px;
-  background: #fff;
+  background: #fffdf8;
   color: var(--green-900);
 }
 
@@ -352,23 +389,25 @@ button {
 .service-list,
 .policy-list {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .policy-card {
-  padding: 16px;
+  padding: 17px;
 }
 
 .policy-card h3 {
   margin: 0 0 8px;
   color: var(--green-900);
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.14;
 }
 
 .policy-card p {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.42;
 }
 
 .policy-card p + p,
@@ -378,9 +417,9 @@ button {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
+  grid-template-columns: 92px minmax(0, 1fr);
   gap: 12px;
-  padding: 14px;
+  padding: 15px;
 }
 
 .time {
@@ -388,8 +427,9 @@ button {
   min-height: 38px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background: var(--green-100);
+  border-radius: 10px;
+  border: 1px solid rgba(180, 154, 98, 0.46);
+  background: #f9f3e4;
   color: var(--green-900);
   font-size: 12px;
   font-weight: 900;
@@ -404,7 +444,7 @@ button {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 14px;
   align-items: center;
-  padding: 16px;
+  padding: 17px;
 }
 
 .text-button {
@@ -416,7 +456,7 @@ button {
 }
 
 .feedback-panel {
-  padding: 16px;
+  padding: 17px;
 }
 
 .contact-section {
@@ -449,16 +489,16 @@ button {
   grid-template-columns: repeat(4, 1fr);
   max-width: 520px;
   margin: 0 auto;
-  padding: 8px 10px max(8px, env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.95);
-  border-top: 1px solid var(--line);
+  padding: 8px 10px max(9px, env(safe-area-inset-bottom));
+  background: rgba(255, 253, 247, 0.96);
+  border-top: 1px solid rgba(184, 173, 134, 0.42);
   backdrop-filter: blur(16px);
 }
 
 .bottom-nav a {
   min-height: 46px;
   padding: 14px 6px;
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--green-900);
   font-size: 12px;
   font-weight: 900;
@@ -467,13 +507,13 @@ button {
 
 .bottom-nav a:focus,
 .bottom-nav a:hover {
-  background: var(--green-100);
+  background: #f1ead8;
 }
 
 .modal {
   width: min(92vw, 420px);
   border: 0;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 0;
   box-shadow: var(--shadow);
 }
@@ -486,8 +526,8 @@ button {
   place-items: center;
   padding: 18px;
   background:
-    linear-gradient(180deg, rgba(6, 47, 51, 0.4), rgba(6, 47, 51, 0.94)),
-    url("https://zvezdny.biz/upload/iblock/176/176e94283cbd9a9bbf287f5989c298b5.jpg") center / cover;
+    radial-gradient(circle at top, rgba(180, 154, 98, 0.18), transparent 38%),
+    linear-gradient(180deg, #f8f3e8, #ece3d2);
 }
 
 .room-gate.visible {
@@ -499,14 +539,16 @@ button {
   width: min(100%, 420px);
   gap: 14px;
   padding: 24px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(184, 173, 134, 0.58);
+  border-radius: 14px;
+  background: rgba(255, 253, 247, 0.97);
   box-shadow: var(--shadow);
 }
 
 .room-gate-logo {
   width: 138px;
   margin-bottom: 8px;
+  filter: brightness(0) saturate(100%) invert(17%) sepia(18%) saturate(1052%) hue-rotate(124deg) brightness(92%) contrast(91%);
 }
 
 .room-gate-card h1 {
@@ -523,7 +565,7 @@ button {
 }
 
 .modal::backdrop {
-  background: rgba(6, 47, 51, 0.48);
+  background: rgba(18, 54, 47, 0.42);
 }
 
 .modal-card {
@@ -531,6 +573,7 @@ button {
   display: grid;
   gap: 14px;
   padding: 22px;
+  background: var(--paper);
 }
 
 .modal-card h2 {
@@ -547,7 +590,7 @@ button {
   height: 36px;
   border: 0;
   border-radius: 50%;
-  background: var(--green-100);
+  background: #f1ead8;
   color: var(--green-900);
   font-size: 24px;
   line-height: 1;
@@ -566,9 +609,9 @@ textarea,
 select {
   width: 100%;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 12px;
-  background: #fff;
+  background: #fffdf8;
   color: var(--text);
 }
 
@@ -595,7 +638,7 @@ textarea {
   max-width: 488px;
   margin: 0 auto;
   padding: 14px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--green-900);
   color: #fff;
   font-size: 14px;
