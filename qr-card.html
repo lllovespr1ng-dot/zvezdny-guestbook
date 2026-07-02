@@ -104,10 +104,10 @@
     <main class="card">
       <img class="logo" src="https://zvezdny.biz/upload/images/ZV_logo.svg" alt="Отель Звездный">
       <h1>Цифровой гид гостя</h1>
-      <p>Сканируйте QR-код, введите номер комнаты и откройте Wi-Fi, завтрак, услуги, SPA и контакты ресепшена.</p>
+      <p>Сканируйте QR-код, введите номер комнаты и откройте Wi-Fi, завтрак, услуги, СПА и контакты службы приема и размещения.</p>
       <div class="qr" aria-label="Место для QR-кода">
         <img id="qrImage" alt="QR-код для открытия цифрового гида">
-        <span class="qr-fallback" id="qrFallback">QR code</span>
+        <span class="qr-fallback" id="qrFallback">QR-код</span>
       </div>
       <p class="url" id="qrUrl">zvezdny-guestbook/index.html</p>
       <p class="note" id="qrNote"></p>
@@ -127,9 +127,9 @@
       });
 
       if (window.location.protocol === "file:" && !params.get("url")) {
-        qrNote.textContent = "Сейчас QR ведет на локальный file:// адрес. Для печати сначала опубликуйте guestbook и откройте qr-card.html?url=ВАШ_ПУБЛИЧНЫЙ_URL.";
+        qrNote.textContent = "Сейчас QR ведет на локальный file:// адрес. Для печати сначала опубликуйте цифровой гид и откройте qr-card.html?url=ВАША_ПУБЛИЧНАЯ_ССЫЛКА.";
       } else {
-        qrNote.textContent = "Этот QR ведет на общий guestbook. Номер комнаты гость вводит после сканирования.";
+        qrNote.textContent = "Этот QR ведет на общий цифровой гид. Номер комнаты гость вводит после сканирования.";
       }
     </script>
   </body>
